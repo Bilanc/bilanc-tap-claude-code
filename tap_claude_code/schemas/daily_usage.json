@@ -8,6 +8,12 @@
       ],
       "format": "date-time"
     },
+    "actor_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "actor": {
       "type": [
         "object",
@@ -27,6 +33,12 @@
           ],
           "format": "email"
         }
+      },
+      "api_key_name": {
+        "type": [
+          "string",
+          "null"
+        ]
       }
     },
     "organization_id": {

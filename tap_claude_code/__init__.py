@@ -18,7 +18,7 @@ REQUEST_TIMEOUT = 300
 REQUIRED_CONFIG_KEYS = ["start_date"]
 
 KEY_PROPERTIES = {
-    "daily_usage": ["date", "user_email"],
+    "daily_usage": ["date", "actor_id"],
 }
 
 SUB_STREAMS = {}
@@ -195,6 +195,10 @@ def get_daily_usage(schema, state, mdata, start_date):
                 extraction_time = singer.utils.now()
                 for daily_usage in daily_usages:
                     try:
+                        if daily_usage["actor"]["type"] == "api_actor":
+                            daily_usage["actor_id"] = daily_usage["actor"]["api_key_name"]
+                        else:
+                            daily_usage["actor_id"] = daily_usage["actor"]["email_address"]
                         with singer.Transformer() as transformer:
                             rec = transformer.transform(
                                 daily_usage,
