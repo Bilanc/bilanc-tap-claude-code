@@ -176,7 +176,7 @@ def get_daily_usage(schema, state, mdata, start_date):
         state, "daily_usage", "since", start_date
     )
     if bookmark_value:
-        bookmark_time = datetime.strptime(bookmark_value, '%Y-%m-%d')
+        bookmark_time = datetime.strptime(bookmark_value, '%Y-%m-%dT%H:%M:%SZ')
     else:
         bookmark_time = datetime.today()
 
@@ -248,7 +248,7 @@ def do_sync(config, state, catalog):
     # Bitbucket only uses Bearer token authentication
     session.headers.update({"x-api-key": api_key, "Content-Type": "application/json", "anthropic-version": anthropic_api_version})
 
-    start_date = start_date = config["start_date"] if "start_date" in config else datetime.today().strftime('%Y-%m-%d')
+    start_date = start_date = config["start_date"] if "start_date" in config else datetime.today()
 
     # get selected streams, make sure stream dependencies are met
     selected_stream_ids = get_selected_streams(catalog)

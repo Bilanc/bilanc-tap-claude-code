@@ -2,3 +2,4 @@ catalog.json
 config.json
 data.singer
 tap_claude_code.egg-info/
+tap_claude_code/__pycache__/*
