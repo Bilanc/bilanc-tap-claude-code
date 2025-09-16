@@ -15,6 +15,7 @@ setup(
         "requests==2.29.0",
         "urllib3==1.26.20",
         "backoff==1.8.0",
+        "python-dateutil==2.8.2",
     ],
     extras_require={"dev": ["pylint==2.6.2", "ipdb", "nose", "requests-mock==1.9.3"]},
     entry_points="""

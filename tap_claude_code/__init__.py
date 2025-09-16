@@ -6,6 +6,7 @@ import singer
 import argparse
 from singer import bookmarks, metrics, metadata
 from datetime import datetime, timedelta
+from dateutil import parser
 
 session = requests.Session()
 logger = singer.get_logger()
@@ -176,7 +177,7 @@ def get_daily_usage(schema, state, mdata, start_date):
         state, "daily_usage", "since", start_date
     )
     if bookmark_value:
-        bookmark_time = datetime.strptime(bookmark_value, '%Y-%m-%dT%H:%M:%SZ')
+        bookmark_time = parser.parse(bookmark_value).replace(tzinfo=None)
     else:
         bookmark_time = datetime.today()
 
@@ -184,6 +185,7 @@ def get_daily_usage(schema, state, mdata, start_date):
         "daily_usage",
     ) as counter:
         current_date = bookmark_time
+        print(current_date)
         end_date = datetime.today()
         while current_date <= end_date:
             for response in authed_get_all_pages(
