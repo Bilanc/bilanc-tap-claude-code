@@ -185,7 +185,6 @@ def get_daily_usage(schema, state, mdata, start_date):
         "daily_usage",
     ) as counter:
         current_date = bookmark_time
-        print(current_date)
         end_date = datetime.today()
         while current_date <= end_date:
             for response in authed_get_all_pages(
