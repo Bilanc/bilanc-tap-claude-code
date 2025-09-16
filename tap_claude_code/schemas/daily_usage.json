@@ -1,0 +1,261 @@
+{
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "actor": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email_address": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "email"
+        }
+      }
+    },
+    "organization_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uuid"
+    },
+    "terminal_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "customer_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "subscription_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "core_metrics": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "num_sessions": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "lines_of_code": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "added": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "removed": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "commits_by_claude_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pull_requests_by_claude_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "tool_actions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "edit_tool": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "accepted": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rejected": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "multi_edit_tool": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "accepted": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rejected": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "write_tool": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "accepted": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rejected": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "notebook_edit_tool": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "accepted": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rejected": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "model_breakdown": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tokens": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "input": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "output": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "cache_read": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "cache_creation": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          },
+          "estimated_cost": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "currency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
