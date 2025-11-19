@@ -200,6 +200,7 @@ def get_daily_usage(schema, state, mdata, start_date):
                             daily_usage["actor_id"] = daily_usage["actor"]["api_key_name"]
                         else:
                             daily_usage["actor_id"] = daily_usage["actor"]["email_address"]
+                        daily_usage["inserted_at"] = singer.utils.strftime(extraction_time)
                         with singer.Transformer() as transformer:
                             rec = transformer.transform(
                                 daily_usage,
