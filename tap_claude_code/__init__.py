@@ -19,7 +19,7 @@ REQUEST_TIMEOUT = 300
 REQUIRED_CONFIG_KEYS = ["start_date"]
 
 KEY_PROPERTIES = {
-    "daily_usage": ["date", "actor_id", "inserted_at"],
+    "daily_usage": ["date", "actor_id"],
 }
 
 SUB_STREAMS = {}
